@@ -16,11 +16,12 @@ public class RemoveLinkedListElements {
 	
 	public ListNode removeElements(ListNode head, int val) {
         
+		//check if linked list is null;
 		if(head == null){
 			return null;
 		}
 		
-		
+		//check first items
 		while(head.val == val){
 			
 			if(head.next!=null)
@@ -30,15 +31,17 @@ public class RemoveLinkedListElements {
 			}
 		}
 		
+		
 		ListNode current = head;
 		
+		//check others
 		while(current.next!=null){
 			
 			while(current.next.val == val){
 				
-				if(current.next.next!=null)
+				if(current.next.next!=null) //If not the last one, skip(remove) that.
 					current.next = current.next.next;
-				else{
+				else{           //That is, if this is the last element.
 					current.next = null;
 					return head;
 				}
