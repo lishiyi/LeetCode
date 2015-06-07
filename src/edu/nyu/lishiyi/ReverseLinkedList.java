@@ -20,36 +20,28 @@ public class ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
     	
-    	//check if the linked list is null
-    	if(head == null){                
-    		return null;
-    	}
-    	
-    	// check if the linked list only have one item.
-    	if(head.next == null){          
-    		return head;
-    	}
-    	
-    	//a current point to head
+    	//Set prev node to null
+    	ListNode prev = null;
+    	//Set current node to head
         ListNode current = head;
 
-        //while there is next item
-        while (current.next != null){
+        
+        while (current!= null){
         	
-            //get the next node
-            ListNode temp = current.next;
-
-            //take the next node out of the chain and set current's next node to its next node
-            current.next = temp.next;
-
-            //now make the node we took out to point to head  
-            temp.next = head;
-
-            //reassign the head
-            head = temp;
+        	//new a temp node which is the next of current (  ¡ú next)
+        	ListNode next = current.next;
+        	
+        	//flip the next of current to prev node ( prev ¡û current)
+        	current.next = prev;
+        	
+        	//shift prev to current ( prev ¡ú ¡ú )
+        	prev = current; 
+        	
+        	//shift current to next  ( current ¡ú ¡ú )
+        	current = next;
         }
 
-        return head;
+        return prev;
     }
 	
 	
