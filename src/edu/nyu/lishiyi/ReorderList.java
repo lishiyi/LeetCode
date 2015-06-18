@@ -42,11 +42,25 @@ public class ReorderList {
 		//That is no more elements after the half
 		slow.next = null;
 		
+		//reverse the second half
 		head2 = reverse(head2);
 		
 		while(head1!=null && head2!=null){
 			
+			//Save the 4th node
+			ListNode next = head2.next;
 			
+			//make the 2nd node's next be the 3rd node
+			head2.next = head1.next;
+			
+			//make the 1st node's next be the 2nd
+			head1.next = head2;
+			
+			//make the NextRound of head1 be the 3rd one 
+			head1 = head2.next;
+			
+			//make the NextRound of head2 be the 4th one
+			head2 = next;
 		}
 		
 		
