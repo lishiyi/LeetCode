@@ -36,7 +36,7 @@ public class RotateList {
 		//the mode of k steps.
 		int move = (k>count) ? (k%count) : k;
 		
-		//each iteration, move one step to left; if we want to move right, just the count - move.
+		//each iteration, move one step to left; if we want to move right, just the count  - move.
 		for(int i=0; i < (count - move) ; i++){
 			
 			ListNode newHead = head.next;
