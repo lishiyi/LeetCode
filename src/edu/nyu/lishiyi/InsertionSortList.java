@@ -14,36 +14,49 @@ public class InsertionSortList {
 			return head;
 		}
 		
+		ListNode dummy = new ListNode(999999);
+		
+		dummy.next = head;
 		//Outer Iteration, set current to head
 		ListNode current = head;
 		
-		ListNode newHead = new ListNode(999999);
-		
-		newHead.next = head;
-		
 		while(current!=null && current.next!=null){      //3
 			
-			ListNode save = current.next.next;           //4
+			ListNode next = current.next.next;           //4
 			
 			//save the new  1 number to sort
 			ListNode newNum = current.next;              //2
-			//Inner Iteration, set innerCurrent to head
-			ListNode innerCurrent = newHead.next;                //n.next = 3
+
+			ListNode dummy2 = new ListNode(998);
+			
+			dummy2.next = current;
+			
 			//remove the elements after current
 			current.next = null;                         //1.next = null
+			
+			//Inner Iteration, set innerCurrent to head
+			ListNode innerCurrent = dummy.next;                //n.next = 3
 			
 			while(innerCurrent!=null){                      //3   //1
 				//save the next for next step iteration
 				ListNode innerNext = innerCurrent.next;          //3.next = 1  //null
-				//make the newNumber be the current "head" (the largest than others)   
+				//make the newNumber be the current "head" (the smallest than others)   
 				newNum.next = innerCurrent;                      //2.next = 3  //2.next = 1
-				//If it is really largest, it's done, break it
-				if(newNum.val >= innerCurrent.val){               //n/a    //2>1
+				//If it is really smallest, it's done, break it
+				
+
+				
+				if(newNum.val <= innerCurrent.val){               //n/a    //2>1
 					
-					if(newNum.val >= newHead.next.val){           //n/a    //2<3
-						newHead.next = newNum;
+					if(newNum.val <= dummy.next.val){           //n/a    //2<3
+						dummy.next = newNum;
+					}
+					
+					if(innerNext==null){
+						dummy2.next = innerCurrent;
 					}
 
+					
 					break;
 				}
 				//Else, insert into: "current" >> here >>"current.next" 
@@ -51,46 +64,32 @@ public class InsertionSortList {
 					
 					newNum.next = innerCurrent.next;       //2.next = 1    //n/a
 					innerCurrent.next = newNum;            //3.next = 2    //n/a
+					
+					if(innerNext==null){
+						dummy2.next = newNum;
+					}
 				}
 				
+				
+				
 				innerCurrent = innerNext;      //1  //n/a
+
 			}
 			
-			current.next = save;
-			current = current.next;
+			current = dummy2.next;
+			//TODO
+			current.next = next;
 			
 		}
 		
-		return newHead;
-		//
-		//return reverse(newHead);
+		return dummy.next;
     }
 	
-	private ListNode reverse(ListNode head){
-		
-		ListNode prev = null;
-		
-		ListNode current = head;
-		
-		while(current!=null){
-			
-			ListNode next = current.next;
-			
-			current.next = prev;
-			
-			prev = current;
-			
-			current = next;
-			
-		}
-		
-		return prev;
-	}
 	
         public static void main(String[] args) {
 			
-			ListNode l1 = new ListNode(1);
-			ListNode l2 = new ListNode(3);
+			ListNode l1 = new ListNode(3);
+			ListNode l2 = new ListNode(1);
 			ListNode l3 = new ListNode(2);
 			ListNode l4 = new ListNode(4);
 			ListNode l5 = new ListNode(6);
