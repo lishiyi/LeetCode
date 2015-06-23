@@ -13,20 +13,37 @@ public class SwapNodesinPairs {
    
 	public ListNode swapPairs(ListNode head) {
         
+		//Check if null or only has one element.
+		if(head==null||head.next==null){
+			
+			return head;
+		}
+		
+		//Dummy node for the new head
 		ListNode dummy = new ListNode(0);
 		
-		dummy.next = head;
-
+		dummy.next = head.next;
+		
+		//current node for iteration
 		ListNode current = head;
 		
 		while(current!=null&&current.next!=null){
 			
+			//Set Next the 3rd node
 			ListNode next = current.next.next;
 			
+			//set the 2nd's next to the 1st
 			current.next.next = current;
-			
-			current.next = next;
-			
+			//check if the tail is single
+			if(next!=null&&next.next!=null){
+				//if not single, the next will be the 4th
+				current.next = next.next;
+			}
+			else{
+				//else (if is single), the next will be the 3rd
+				current.next = next;
+			}
+			//set current to the 3rd
 			current = next;
 		}
 		
