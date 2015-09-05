@@ -45,3 +45,5 @@ bin/edu/nyu/lishiyi/RotateList.class
 *.class
 *.name
 *.iml
+.idea/workspace.xml
+*.xml
