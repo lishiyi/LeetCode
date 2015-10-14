@@ -4,6 +4,86 @@
 		"selected_items":
 		[
 			[
+				"r",
+				"right"
+			],
+			[
+				"Tree",
+				"TreeNode"
+			],
+			[
+				"nei",
+				"neighbor"
+			],
+			[
+				"pu",
+				"put"
+			],
+			[
+				"ne",
+				"neighbors"
+			],
+			[
+				"new",
+				"newNode"
+			],
+			[
+				"ma",
+				"max"
+			],
+			[
+				"su",
+				"substring"
+			],
+			[
+				"wor",
+				"wordDict"
+			],
+			[
+				"fr",
+				"fromFirstHouse"
+			],
+			[
+				"fo",
+				"fromSecondHouse"
+			],
+			[
+				"fro",
+				"fromFirstHouse"
+			],
+			[
+				"ob",
+				"obstacleGrid"
+			],
+			[
+				"sq",
+				"sqrtOfnum"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"A",
+				"ArrayList"
+			],
+			[
+				"pr",
+				"prices"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"t",
+				"true"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
 				"List",
 				"ListNode"
 			],
@@ -41,6 +121,153 @@
 			{
 				"buffer_size": 102,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/Triangle.java",
+			"settings":
+			{
+				"buffer_size": 1367,
+				"line_ending": "Windows",
+				"name": "Triangle Total Accepted: 48258 Total Submissions:"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/ClimbingStairs.java",
+			"settings":
+			{
+				"buffer_size": 640,
+				"line_ending": "Windows",
+				"name": "Climbing Stairs"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/JumpGame.java",
+			"settings":
+			{
+				"buffer_size": 906,
+				"line_ending": "Windows",
+				"name": "Jump Game"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/PalindromeNumber.java",
+			"settings":
+			{
+				"buffer_size": 442,
+				"line_ending": "Windows",
+				"name": "Palindrome Number"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/HouseRobber.java",
+			"settings":
+			{
+				"buffer_size": 1430,
+				"line_ending": "Windows",
+				"name": "House Robber"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/MaximumSubarray.java",
+			"settings":
+			{
+				"buffer_size": 1157,
+				"line_ending": "Windows",
+				"name": "Maximum Subarray"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/UniquePaths.java",
+			"settings":
+			{
+				"buffer_size": 845,
+				"line_ending": "Windows",
+				"name": "Unique Paths"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/BestTimeToBuyAndSellStock.java",
+			"settings":
+			{
+				"buffer_size": 1097,
+				"line_ending": "Windows",
+				"name": "Best Time to Buy and Sell Stock"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/MinimumPathSum.java",
+			"settings":
+			{
+				"buffer_size": 1058,
+				"line_ending": "Windows",
+				"name": "Minimum Path Sum"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/PerfectSquares.java",
+			"settings":
+			{
+				"buffer_size": 1527,
+				"line_ending": "Windows",
+				"name": "Perfect Squares"
+			}
+		},
+		{
+			"contents": "Unique Paths II \nMy Submissions Question Solution \nTotal Accepted: 44594 Total Submissions: 159602 Difficulty: Medium\nFollow up for \"Unique Paths\":\n\nNow consider if some obstacles are added to the grids. How many unique paths would there be?\n\nAn obstacle and empty space is marked as 1 and 0 respectively in the grid.\n\nFor example,\nThere is one obstacle in the middle of a 3x3 grid as illustrated below.\n\n[\n  [0,0,0],\n  [0,1,0],\n  [0,0,0]\n]\nThe total number of unique paths is 2.\n\nNote: m and n will be at most 100.\n\n\npublic class Solution {\n    public int uniquePathsWithObstacles(int[][] obstacleGrid) {\n        \n        if(obstacleGrid == null || obstacleGrid.length == 0 || obstacleGrid[0].length == 0\n        	|| obstacleGrid[0][0] == 1){\n\n        	return 0;\n        }\n\n        int m = obstacleGrid.length;\n        int n = obstacleGrid[0].length;\n        int[][] sum = new int[m][n];\n        \n        for(int i = 0; i < m; i++){\n\n        	if(obstacleGrid[i][0] == 1){\n\n        		break;\n        	} \n\n        	sum[i][0] = 1;\n        }\n\n        for(int j = 1; j < n; j++){\n\n        	if(obstacleGrid[0][j] == 1){\n\n        		break;\n        	} \n\n        	sum[0][j] = 1;\n        }\n\n\n        for(int i = 1; i < m; i++){\n        	for(int j = 1; j < n; j++){\n\n        		sum[i][j] = obstacleGrid[i][j] == 1 ? 0 : sum[i][j - 1] + sum[i - 1][j];\n        	}\n        }\n\n        return sum[m - 1][n - 1];\n    }\n}",
+			"file": "src/edu/nyu/lishiyi/UniquePathsII.java",
+			"file_size": 1429,
+			"file_write_time": 130865689684866743,
+			"settings":
+			{
+				"buffer_size": 1401,
+				"line_ending": "Windows",
+				"name": "Unique Paths II"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/HouseRobberII.java",
+			"settings":
+			{
+				"buffer_size": 1663,
+				"line_ending": "Windows",
+				"name": "House Robber II"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/WordBreak.java",
+			"settings":
+			{
+				"buffer_size": 1133,
+				"line_ending": "Windows",
+				"name": "Word Break"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/MaximalSquare.java",
+			"settings":
+			{
+				"buffer_size": 1310,
+				"line_ending": "Windows",
+				"name": "Maximal Square"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/CloneGraph.java",
+			"settings":
+			{
+				"buffer_size": 2704,
+				"line_ending": "Windows",
+				"name": "Clone Graph My Submissions Question Solution"
+			}
+		},
+		{
+			"file": "src/edu/nyu/lishiyi/SameTree.java",
+			"settings":
+			{
+				"buffer_size": 822,
+				"line_ending": "Windows",
+				"name": "Same Tree My Submissions Question Solution"
 			}
 		},
 		{
@@ -299,7 +526,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 17,
 			"sheets":
 			[
 				{
@@ -328,7 +555,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -356,11 +583,501 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "src/edu/nyu/lishiyi/Triangle.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1359,
+								1359
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Triangle Total Accepted: 48258 Total Submissions:",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/edu/nyu/lishiyi/ClimbingStairs.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								605,
+								605
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Climbing Stairs",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/edu/nyu/lishiyi/JumpGame.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 906,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								695,
+								695
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Jump Game",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/edu/nyu/lishiyi/PalindromeNumber.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								405,
+								405
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Palindrome Number",
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/edu/nyu/lishiyi/HouseRobber.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								755,
+								755
+							]
+						],
+						"settings":
+						{
+							"auto_name": "House Robber",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/edu/nyu/lishiyi/MaximumSubarray.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1155,
+								1155
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Maximum Subarray",
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/edu/nyu/lishiyi/UniquePaths.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								515,
+								515
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Unique Paths",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/edu/nyu/lishiyi/BestTimeToBuyAndSellStock.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1097,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								447,
+								447
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Best Time to Buy and Sell Stock",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/edu/nyu/lishiyi/MinimumPathSum.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								483,
+								483
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Minimum Path Sum",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/edu/nyu/lishiyi/PerfectSquares.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								660,
+								660
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Perfect Squares",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/edu/nyu/lishiyi/UniquePathsII.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								516,
+								516
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Unique Paths II",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "src/edu/nyu/lishiyi/HouseRobberII.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1663,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1387,
+								1387
+							]
+						],
+						"settings":
+						{
+							"auto_name": "House Robber II",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/edu/nyu/lishiyi/WordBreak.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1080,
+								1080
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Word Break",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "src/edu/nyu/lishiyi/MaximalSquare.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1121,
+								1121
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Maximal Square",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/edu/nyu/lishiyi/CloneGraph.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2672,
+								2672
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Clone Graph My Submissions Question Solution",
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/edu/nyu/lishiyi/SameTree.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 822,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								820,
+								820
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Same Tree My Submissions Question Solution",
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
 					"file": "src/edu/nyu/lishiyi/ListNode.java",
 					"semi_transient": false,
 					"settings":
@@ -384,14 +1101,9 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 17,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -412,18 +1124,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.865304967075,
 			1.0
 		],
 		"rows":
@@ -463,6 +1168,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"C:\\Users\\Administrator\\Documents\\GitHub\\LintCode\\LintCode.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -483,7 +1192,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 324.0,
+	"side_bar_width": 81.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
