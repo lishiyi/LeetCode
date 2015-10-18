@@ -21,17 +21,19 @@ public class Solution {
 
         
         int[] result = new int[nums.length];
+        // Result for productFromLeft(Except itself)
         result[0] = 1;
 
         for(int i = 1; i < nums.length; i++){
 
         	result[i] = result[i - 1] * nums[i - 1];
         }
-
+        //Result for productFromRight (Except itself)
         int productFromRight = 1;
         for(int i = nums.length - 2; i >= 0; i--){
 
         	productFromRight *= nums[i + 1];
+        	//Left * Right for each one
         	result[i] *= productFromRight;
         }
 
