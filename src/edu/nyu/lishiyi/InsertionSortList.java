@@ -8,125 +8,30 @@ public class InsertionSortList {
 
 	public ListNode insertionSortList(ListNode head) {
         
-		//If linked list is null or has only one node, return it
-		if(head == null || head.next == null){
-			
-			return head;
+		if(head == null){
+			return null;
 		}
-		
-		ListNode dummy = new ListNode(999999);
-		
+
+		ListNode dummy = new ListNode(0);
 		dummy.next = head;
-		//Outer Iteration, set current to head
+		ListNode prev = dummy;
 		ListNode current = head;
-		
-		while(current!=null && current.next!=null){      //3
-			
-			ListNode next = current.next.next;           //4
-			
-			//save the new  1 number to sort
-			ListNode newNum = current.next;              //2
+		ListNode next = head.next;
 
-			ListNode dummy2 = new ListNode(998);
-			
-			dummy2.next = current;
-			
-			//remove the elements after current
-			current.next = null;                         //1.next = null
-			
-			//Inner Iteration, set innerCurrent to head
-			ListNode innerCurrent = dummy.next;                //n.next = 3
-			
-			while(innerCurrent!=null){                      //3   //1
-				//save the next for next step iteration
-				ListNode innerNext = innerCurrent.next;          //3.next = 1  //null
-				//make the newNumber be the current "head" (the smallest than others)   
-				newNum.next = innerCurrent;                      //2.next = 3  //2.next = 1
-				//If it is really smallest, it's done, break it
-				
+		while(current != null){
 
-				
-				if(newNum.val <= innerCurrent.val){               //n/a    //2>1
-					
-					if(newNum.val <= dummy.next.val){           //n/a    //2<3
-						dummy.next = newNum;
-					}
-					
-					if(innerNext==null){
-						dummy2.next = innerCurrent;
-					}
+			next = current.next;
 
-					
-					break;
-				}
-				//Else, insert into: "current" >> here >>"current.next" 
-				else {
-					
-					newNum.next = innerCurrent.next;       //2.next = 1    //n/a
-					innerCurrent.next = newNum;            //3.next = 2    //n/a
-					
-					if(innerNext==null){
-						dummy2.next = newNum;
-					}
-				}
-				
-				
-				
-				innerCurrent = innerNext;      //1  //n/a
-
+			while(prev.next != null && prev.next.val < current.val){
+				prev = prev.next;
 			}
-			
-			current = dummy2.next;
-			//TODO
-			current.next = next;
-			
+			current.next = prev.next;
+			prev.next = current;
+			current = next;
+			prev = dummy;
 		}
-		
+
 		return dummy.next;
     }
-	
-	
-        public static void main(String[] args) {
-			
-			ListNode l1 = new ListNode(3);
-			ListNode l2 = new ListNode(1);
-			ListNode l3 = new ListNode(2);
-			ListNode l4 = new ListNode(4);
-			ListNode l5 = new ListNode(6);
-			ListNode l6 = new ListNode(5);
-			
-			ListNode p1 = new ListNode(9);
-			ListNode p2 = new ListNode(8);
-			ListNode p3 = new ListNode(7);
-			l1.next = l2;
-			l2.next = l3;
-			l3.next = l4;
-			l4.next = l5;
-			l5.next = l6;
-			l6.next = p1;
-			
-			p1.next = p2;
-			p2.next = p3;
-			p3.next = null;
-	
-			
-			InsertionSortList mt = new InsertionSortList();
-			ListNode ll1 = mt.insertionSortList(l1);
-			
-			try{
-				System.out.println(ll1.val);
-				System.out.println(ll1.next.val);
-				System.out.println(ll1.next.next.val);
-				System.out.println(ll1.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.next.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.next.next.next.next.next.val);
-				System.out.println(ll1.next.next.next.next.next.next.next.next.next.next.val);
-			} catch(NullPointerException e){
-				System.out.println("No more elements");
-			}
-		}
+
 }
